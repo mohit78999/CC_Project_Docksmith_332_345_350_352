@@ -1,0 +1,13 @@
+FROM python:3.11-alpine
+
+WORKDIR /app
+
+ENV APP_ENV=production
+ENV GREETING=Hello
+
+COPY app.py /app/app.py
+COPY vendor/README.txt /app/vendor/README.txt
+
+RUN echo "Build complete. Files in /app:" && ls /app
+
+CMD ["python3", "/app/app.py"]
